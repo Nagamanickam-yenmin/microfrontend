@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   devServer: {
-    port: 3002,
+    port: 3004,
     historyApiFallback: true,
     hot: false, 
     headers: {
@@ -39,13 +39,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'Auth',
-      filename: 'LoginEntry.js', 
+      name: 'Payment',
+      filename: 'PaymentEntry.js', 
       remotes: {
         Components: 'Components@http://localhost:3001/ComponentsEntry.js',
       },
       exposes: {
-        './Login': './src/screen/login',
+        './PaymentScreen': './src/screen/Payment',
       },
       shared: {
         react: {

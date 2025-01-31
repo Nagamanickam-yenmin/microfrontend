@@ -1,11 +1,11 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';  
-import Rewards from './screen/Rewards';
+import Tenant from './screen/Tenant';
 
 function App() {
   return ( 
-    <Rewards/>
+    <Tenant/>
   );
 }
 

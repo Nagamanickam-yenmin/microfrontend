@@ -1,15 +1,12 @@
-import React  from 'react'; 
+import React from 'react';
+// import logo from './logo.svg';
+import './App.css';
+import Login from './screen/login';
 
-import Login from './screen/login';  
-import { Provider } from 'react-redux';
-import store from 'Components/Store';
-
-export default function App() {
+function App() {
   return (
-    <> 
-    <Provider store={store}>
-      <Login />   
-    </Provider>
-    </>
+    <Login/>
   );
 }
+
+export default App;

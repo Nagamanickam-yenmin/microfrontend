@@ -13,9 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx", 
+    "paths": {
+      "Components/*": ["./src/*"]
+    }
   },
   "include": [
-    "src"
+    "src",
+    "remotes.d.ts"
   ]
 }

@@ -1,37 +1,21 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from './layout';
-import './assets/scss/app.scss';
-import { Provider } from 'react-redux';
-// import store from 'Components/Store';
+import './App.css';
 
-const Login = React.lazy(() => import('Login/Auth'));
-// const Rewards = React.lazy(() => import('Rewards/Rewards'));
-// const Landlord = React.lazy(() => import('Landlord/Landlord'));
-// const Payments = React.lazy(() => import('Payments/Payments'));
-// const useAuth  = React.lazy(() => import('Components/UseAuth'));
-
-
-export default function App() {
-  const layout = location.pathname === '/login';
-  // const useLogin = useAuth();
-
-  // console.log(useLogin,"useLogin")
+// Dynamically import the Login component from the remote container
+const Login = React.lazy(() => import('Auth/Login'));
+const TenantScreen = React.lazy(() => import('Tenant/TenantScreen'));
+const PaymentScreen = React.lazy(() => import('Payment/PaymentScreen'));
+const RewardsScreen = React.lazy(() => import('Rewards/RewardsScreen'));
+function App() {
   return (
-    // <Provider store={store}>
-    <Layout showLayout={true}>
-      <Router>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            <Route path="/" component={Login} /> 
-            {/* <Route path="/login" component={Login} /> */}
-            {/* <Route path="/rewards" component={Rewards} /> */}
-            {/* <Route path="/landlord" component={Landlord} /> */}
-            {/* <Route path="/payment" component={Payments} /> */}  
-          </Switch>
-        </Suspense>
-      </Router>
-    </Layout>
-    //  </Provider>
+    <div className="App">
+      <h1>Welcome to the App</h1>  
+        <Login /> 
+        <TenantScreen />
+        <PaymentScreen />
+        <RewardsScreen/>
+    </div>
   );
 }
+
+export default App;

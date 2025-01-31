@@ -1,14 +1,15 @@
+
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   devServer: {
-    port: 3004,
+    port: 3005,
     historyApiFallback: true,
-    hot: false,
+    hot: false, 
     headers: {
-      'Access-Control-Allow-Origin': '*', // Fix cross-origin issues
+      'Access-Control-Allow-Origin': '*', 
     },
     client: {
       overlay: false, // Disable overlay for warnings and errors in the browser console
@@ -18,10 +19,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  entry: './src/index.tsx',
+  entry: './src/index.tsx',  
   output: {
     publicPath: 'auto',
-  },  
+  },
   module: {
     rules: [
       {
@@ -39,27 +40,29 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'Rewards',
-      filename: 'RewardsEntry.js',
+      filename: 'RewardsEntry.js', 
+      remotes: {
+        Components: 'Components@http://localhost:3001/ComponentsEntry.js',
+      },
       exposes: {
-        './Rewards': './src/App.tsx',
+        './RewardsScreen': './src/screen/Rewards',
       },
       shared: {
         react: {
           singleton: true,
           eager: true, // Force eager loading
-          requiredVersion: require('./package.json').dependencies.react,
+          requiredVersion: '^18.0.0', // Specify the required version
         },
         'react-dom': {
           singleton: true,
           eager: true, // Force eager loading
-          requiredVersion: require('./package.json').dependencies['react-dom'],
+          requiredVersion: '^18.0.0', // Specify the required version
         },
-        'react-router-dom': {
-          singleton: true,
-          requiredVersion: require('./package.json').dependencies['react-router-dom'],
-        },
+        // 'react-router-dom': {
+        //   singleton: true,
+        //   requiredVersion: require('./package.json').dependencies['react-router-dom'],
+        // },
       },
-      // shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

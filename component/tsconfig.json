@@ -20,6 +20,6 @@
   },
   "include": [
     "src",
-    "remotes.d.ts"
+    "declarations.d.ts"
   ]
 }

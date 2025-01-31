@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/types/*"]
-    },
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,13 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react",
-    "typeRoots": ["node_modules/@types"],
-    
-    
+    "jsx": "react-jsx", 
+    "paths": {
+      "Components/*": ["./src/*"]
+    }
   },
   "include": [
     "src",
-    "declarations.d.ts"
+    "remotes.d.ts"
   ]
 }

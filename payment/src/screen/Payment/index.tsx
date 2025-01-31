@@ -2,7 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 
 const Input = lazy(() => import("Components/Input"));
 
-const Login: React.FC = () => {
+const Tenant: React.FC = () => {
   const [data, setData] = useState<string>(""); // Initialize state as an empty string
 
   const field = {
@@ -15,14 +15,12 @@ const Login: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData(event.target.value);
   };
-
   return ( 
     <>
-      <Input field={field} onChange={handleChange} /> {/* Pass onChange handler */}
-      <p>login</p>
-      <p>Entered Value: {data}</p> {/* Display entered data */} 
+     <Input field={field} onChange={handleChange} /> {/* Pass onChange handler */}
+     Payment Screen
     </>
   );
 };
 
-export default Login;
+export default Tenant;
