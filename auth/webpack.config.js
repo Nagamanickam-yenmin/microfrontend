@@ -1,38 +1,42 @@
-
-const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin =
+  require("webpack").container.ModuleFederationPlugin;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   devServer: {
     port: 3002,
     historyApiFallback: true,
-    hot: false, 
+    hot: false,
     headers: {
-      'Access-Control-Allow-Origin': '*', 
+      "Access-Control-Allow-Origin": "*",
     },
     client: {
       overlay: false, // Disable overlay for warnings and errors in the browser console
-      logging: 'none', // Disables all Webpack Dev Server logs in the browser console
+      logging: "none", // Disables all Webpack Dev Server logs in the browser console
     },
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
-  entry: './src/index.tsx',  
+  entry: "./src/index.tsx",
   output: {
-    publicPath: 'auto',
+    publicPath: "auto",
   },
   module: {
     rules: [
       {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i, // Match image files
+        type: "asset/resource", // Use Webpack's asset modules
+      },
+      {
         test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/,
       },
       {
@@ -47,24 +51,24 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'Auth',
-      filename: 'LoginEntry.js', 
+      name: "Auth",
+      filename: "LoginEntry.js",
       remotes: {
-        Components: 'Components@http://localhost:3001/ComponentsEntry.js',
+        Components: "Components@http://localhost:3001/ComponentsEntry.js",
       },
       exposes: {
-        './Login': './src/screen/login',
+        "./Login": "./src/screen/login",
       },
       shared: {
         react: {
           singleton: true,
           eager: true, // Force eager loading
-          requiredVersion: '^18.0.0', // Specify the required version
+          requiredVersion: "^18.0.0", // Specify the required version
         },
-        'react-dom': {
+        "react-dom": {
           singleton: true,
           eager: true, // Force eager loading
-          requiredVersion: '^18.0.0', // Specify the required version
+          requiredVersion: "^18.0.0", // Specify the required version
         },
         // 'react-router-dom': {
         //   singleton: true,
@@ -73,11 +77,11 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: "./public/index.html",
     }),
   ],
   watch: true,
-  devtool: 'eval-source-map', // Better debugging
+  devtool: "eval-source-map", // Better debugging
   stats: {
     warnings: false,
     errors: true,

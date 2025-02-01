@@ -13,7 +13,7 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({ field, onChange }) => {
   return (
     <div>
-      <label>{field.fieldName}</label>
+      <label htmlFor={field.fieldName}>{field.fieldName}</label>
       <input
         type={field.type || "text"}
         name={field.fieldName}
