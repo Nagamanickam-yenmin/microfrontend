@@ -18,9 +18,8 @@ const Login: React.FC = () => {
 
   return ( 
     <>
-      <Input field={field} onChange={handleChange} /> {/* Pass onChange handler */}
-      <p>login</p>
-      <p>Entered Value: {data}</p> {/* Display entered data */} 
+    Login Screen
+      {/* <Input field={field} onChange={handleChange} />   */}
     </>
   );
 };

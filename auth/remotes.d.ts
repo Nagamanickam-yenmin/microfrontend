@@ -12,4 +12,7 @@ declare module "Components/Input" {
     const Input: React.FC<InputProps>;
     export default Input;
   }
+// Declaring SCSS file imported from the Components project
+declare module 'Components/Style'     
+
   

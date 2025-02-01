@@ -1,15 +1,20 @@
 declare module "Components/Input" {
-    import React from "react";
-  
-    export type InputProps = {
-      field: {
-        fieldName: string;
-        type?: string;
-      };      
-      onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  import React from "react";
+
+  export type InputProps = {
+    field: {
+      fieldName: string;
+      type?: string;
     };
-  
-    const Input: React.FC<InputProps>;
-    export default Input;
-  }
-  
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+
+  const Input: React.FC<InputProps>;
+  export default Input;
+}
+
+declare module 'Components/Style' {
+  const content: string;
+  export default content;
+}
+

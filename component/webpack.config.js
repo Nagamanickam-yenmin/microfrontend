@@ -126,6 +126,7 @@ module.exports = {
       name: 'Components',
       filename: 'ComponentsEntry.js',
       exposes: {
+        './Style': './src/assets/scss/app.scss',
         './Input': './src/components/input',
         // './Button': './src/components/button',
         // './UseAuth': './src/hooks/useAuth',

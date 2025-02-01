@@ -35,6 +35,14 @@ module.exports = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.scss$/,  // Match .scss files
+        use: [
+          'style-loader', // Inject CSS into DOM
+          'css-loader',   // Translates CSS into CommonJS
+          'sass-loader',  // Compiles SCSS into CSS
+        ],
+      },
     ],
   },
   plugins: [
