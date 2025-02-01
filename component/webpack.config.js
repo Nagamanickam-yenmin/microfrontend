@@ -143,10 +143,10 @@ module.exports = {
         "./CustomRadioGroup": "./src/components/customRadioGroup",
         "./CustomToggleSwitch": "./src/components/customToggleSwitch",
         "./PrimaryButton": "./src/components/primaryButton",
+        './Store': './src/utils/commonShare.ts',
         // './Button': './src/components/button',
         // './UseAuth': './src/hooks/useAuth',
         // './AxiosService': './src/helpers',
-        // './Store': './src/store/store',
       },
       shared: {
         react: {

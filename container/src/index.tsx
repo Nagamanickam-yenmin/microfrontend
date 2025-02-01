@@ -1,13 +1,20 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client"; 
-import App from './App';  
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from './App';
+import { Provider } from "react-redux";
+// import commonStore from "Components/Store"
+const commonStore = React.lazy(() => import('Components/Store'));
+
+console.log("========commonStore",commonStore);
 
 const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <StrictMode>
-    <App />
+    {/* <Provider store={commonStore()}> */}
+      <App />
+    {/* </Provider> */}
   </StrictMode>
 );
 

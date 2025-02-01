@@ -10,15 +10,15 @@ const Rewards = React.lazy(() => import('Rewards/RewardsScreen'));
 function App() {
   return (
     <Layout showLayout={true}>
-    <Router> 
-      <Routes>
-      <Route path="/" element={<Login />} /> 
-        <Route path="/home" element={<Login />} />
-        <Route path="/tenant" element={<Tenant />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/rewards" element={<Rewards />} /> 
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Login />} />
+          <Route path="/tenant" element={<Tenant />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/rewards" element={<Rewards />} />
+        </Routes>
+      </Router>
     </Layout>
   );
 }

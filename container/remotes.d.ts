@@ -36,3 +36,8 @@ declare module 'Rewards/RewardsScreen' {
   export default Auth;
 } 
 
+declare module 'Components/Store' {
+
+  const commonStore: any; // Declare commonStore as a function returning a Store
+  export default commonStore;
+}

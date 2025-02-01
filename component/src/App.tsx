@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import logo from './logo.svg';
 import './assets/scss/app.scss';
+import { updateReducers } from './redux/store/store';
 
 function App() {
+
+  // const data= exportAllReducers()
+  const data = "ji"
+
+  useEffect(() => {
+    if (data) {
+      // const newReducers = updateReducers(data); 
+    }
+  }, [data]);
   return (
     <div className="App">
       <header className="App-header">

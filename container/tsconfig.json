@@ -16,10 +16,12 @@
     "jsx": "react-jsx", 
     "paths": {
       "Components/*": ["./src/*"]
-    }
+    },
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
   "include": [
     "src",
+     "src/**/*", 
     "remotes.d.ts"
   ]
 }
